@@ -1,0 +1,1141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iqra's Desktop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cream: #f3edda;
+    --blue: #a6d9d4;
+    --black: #292824;
+    --white: #fffdf2;
+    --pink: #e9b8a2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background: var(--cream);
+    color: var(--black);
+    overflow: hidden;
+}
+
+/* WALLPAPER */
+
+.desktop {
+    position: relative;
+    width: 100vw;
+    height: 100dvh;
+    min-height: 600px;
+    overflow: hidden;
+    background-color: var(--cream);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='none'%3E%3Cpath fill='%23a6d9d4' d='M0 0H1150Q970 170 1080 320T1440 490V900H0V0Z'/%3E%3Cpath fill='%23f3edda' d='M0 250Q270 290 470 400T930 490Q1160 540 1440 400V580Q1140 720 900 620T430 610Q180 550 0 680Z'/%3E%3Cpath fill='%23a6d9d4' d='M0 610Q220 500 460 650T920 740Q1190 830 1440 690V900H0Z'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    border: 3px solid var(--black);
+    border-radius: 18px;
+}
+
+/* TOP BAR */
+
+.topbar {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    right: 16px;
+    height: 43px;
+    background: var(--cream);
+    border: 3px solid var(--black);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 13px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.top-left {
+    display: flex;
+    gap: 16px;
+}
+
+.topbar button {
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.topbar button:hover {
+    text-decoration: underline;
+}
+
+/* WIDGET */
+
+.widget {
+    position: absolute;
+    top: 85px;
+    left: 18px;
+    width: 195px;
+    padding: 18px;
+    background: var(--cream);
+    border: 3px solid var(--black);
+    border-radius: 13px;
+    box-shadow: 4px 5px 0 var(--black);
+    z-index: 2;
+}
+
+.computer-icon {
+    font-size: 37px;
+    text-align: center;
+}
+
+.clock {
+    font-size: 23px;
+    text-align: center;
+    margin: 7px 0 17px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 9px 0;
+    font-size: 10px;
+}
+
+.stat-bar {
+    height: 12px;
+    flex: 1;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    width: 70%;
+    background: var(--blue);
+}
+
+.stat:nth-child(2) .stat-fill {
+    width: 45%;
+    background: #f0c3a9;
+}
+
+.stat:nth-child(3) .stat-fill {
+    width: 60%;
+    background: #c5dcb8;
+}
+
+.music {
+    margin-top: 20px;
+    border-top: 2px solid var(--black);
+    padding-top: 12px;
+    font-size: 9px;
+}
+
+.music strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.music small {
+    color: #777;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+/* DESKTOP ICONS */
+
+.desktop-icons {
+    position: absolute;
+    right: 20px;
+    top: 85px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    z-index: 2;
+}
+
+.desktop-icon {
+    width: 75px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    font-family: inherit;
+    text-align: center;
+    font-size: 11px;
+}
+
+.desktop-icon .icon {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 4px;
+    filter: grayscale(1);
+    transition: transform .2s;
+}
+
+.desktop-icon:hover .icon {
+    transform: translateY(-5px);
+}
+
+/* MAIN BROWSER WINDOW */
+
+.browser {
+    position: absolute;
+    width: 460px;
+    height: 470px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    background: var(--blue);
+    border: 3px solid var(--black);
+    border-radius: 15px;
+    box-shadow: 7px 8px 0 var(--black);
+    overflow: hidden;
+    z-index: 3;
+}
+
+.window-header {
+    height: 35px;
+    background: var(--cream);
+    border-bottom: 3px solid var(--black);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 7px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.window-dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--black);
+    border-radius: 50%;
+}
+
+.window-title {
+    flex: 1;
+    text-align: center;
+    margin-right: 28px;
+}
+
+.browser-content {
+    height: calc(100% - 35px);
+    overflow-y: auto;
+    padding: 18px;
+}
+
+/* SEARCH */
+
+.search {
+    width: 100%;
+    padding: 12px;
+    background: var(--cream);
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 11px;
+    box-shadow: 3px 4px 0 var(--black);
+    outline: none;
+}
+
+/* WELCOME CARD */
+
+.welcome {
+    margin-top: 20px;
+    padding: 25px 15px;
+    background: var(--cream);
+    border: 3px solid var(--black);
+    border-radius: 13px;
+    box-shadow: 4px 5px 0 var(--black);
+    text-align: center;
+}
+
+.welcome h2 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.welcome p {
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.socials a {
+    color: var(--black);
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    background: var(--blue);
+}
+
+/* QUICK LINKS */
+
+.quick-links {
+    margin-top: 30px;
+    background: var(--cream);
+    border: 3px solid var(--black);
+    border-radius: 12px;
+    box-shadow: 4px 5px 0 var(--black);
+    padding: 17px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+
+.quick-links a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.quick-links a:hover {
+    transform: scale(1.2);
+}
+
+/* BOTTOM WIDGET */
+
+.track-info {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: var(--cream);
+    border: 3px solid var(--black);
+    border-radius: 10px;
+    padding: 12px 17px;
+    width: 190px;
+    font-size: 9px;
+    box-shadow: 3px 4px 0 var(--black);
+}
+
+/* PAGE CONTENT INSIDE BROWSER */
+
+.page {
+    display: none;
+    animation: fade .3s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(8px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.back {
+    background: var(--cream);
+    border: 2px solid var(--black);
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.page h2 {
+    font-size: 21px;
+    margin: 10px 0;
+}
+
+.page p {
+    font-size: 11px;
+    line-height: 1.9;
+    margin-bottom: 12px;
+}
+
+.post {
+    background: var(--cream);
+    border: 2px solid var(--black);
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--black);
+}
+
+.post h3 {
+    font-size: 12px;
+}
+
+.post p {
+    margin: 5px 0 0;
+    color: #666;
+}
+
+.post:hover {
+    background: #fff;
+}
+
+.post-content {
+    display: none;
+}
+
+.post-content.active {
+    display: block;
+}
+
+/* INTRO ANIMATION */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    background: #a6d9d4;
+    background-image:
+        radial-gradient(ellipse at 20% 20%, #f3edda 0%, transparent 55%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .8s ease, visibility .8s;
+}
+
+.intro.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.chat {
+    width: min(420px, 88%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-label {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.bubble {
+    padding: 14px 18px;
+    width: fit-content;
+    max-width: 85%;
+    font-size: 13px;
+    line-height: 1.6;
+    border: 2px solid var(--black);
+    border-radius: 18px;
+    box-shadow: 3px 4px 0 var(--black);
+    opacity: 0;
+    animation: pop .4s ease forwards;
+}
+
+.bubble.sent {
+    align-self: flex-end;
+    background: #1685f8;
+    color: white;
+    border-color: #125eb0;
+    border-bottom-right-radius: 5px;
+}
+
+.bubble.received {
+    align-self: flex-start;
+    background: var(--cream);
+    border-bottom-left-radius: 5px;
+}
+
+@keyframes pop {
+    0% {
+        opacity: 0;
+        transform: scale(.75) translateY(12px);
+    }
+    70% {
+        transform: scale(1.04);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.typing {
+    display: none;
+    align-self: flex-start;
+    background: var(--cream);
+    border: 2px solid var(--black);
+    padding: 12px 17px;
+    border-radius: 18px;
+    gap: 5px;
+}
+
+.typing span {
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background: #777;
+    animation: bounce .8s infinite;
+}
+
+.typing span:nth-child(2) { animation-delay: .15s; }
+.typing span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes bounce {
+    50% { transform: translateY(-5px); }
+}
+
+.enter {
+    align-self: center;
+    margin-top: 25px;
+    padding: 12px 22px;
+    border: 2px solid var(--black);
+    background: var(--cream);
+    box-shadow: 4px 4px 0 var(--black);
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    opacity: 0;
+    transition: .3s;
+}
+
+.enter.show {
+    opacity: 1;
+}
+
+.enter:hover {
+    transform: translateY(-3px);
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+
+    .desktop {
+        min-height: 650px;
+    }
+
+    .topbar {
+        font-size: 9px;
+        left: 7px;
+        right: 7px;
+        padding: 0 7px;
+    }
+
+    .top-left {
+        gap: 8px;
+    }
+
+    .widget {
+        display: none;
+    }
+
+    .desktop-icons {
+        top: auto;
+        bottom: 15px;
+        left: 10px;
+        right: 10px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .desktop-icon {
+        font-size: 9px;
+        width: 60px;
+    }
+
+    .desktop-icon .icon {
+        font-size: 25px;
+    }
+
+    .browser {
+        width: 82%;
+        height: 440px;
+        top: 47%;
+    }
+
+    .track-info {
+        display: none;
+    }
+
+    .window-title {
+        font-size: 8px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING MESSAGE ANIMATION -->
+
+<div class="intro" id="intro">
+
+    <div class="chat">
+
+        <div class="chat-label">A MESSAGE FROM THE GROUP CHAT</div>
+
+        <div id="messages"></div>
+
+        <div class="typing" id="typing">
+            <span></span><span></span><span></span>
+        </div>
+
+        <button class="enter" id="enter" onclick="enterDesktop()">
+            OPEN DESKTOP ↗
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- DESKTOP -->
+
+<div class="desktop">
+
+    <!-- TOP MENU -->
+
+    <div class="topbar">
+
+        <div class="top-left">
+            <span>▣</span>
+            <button onclick="goHome()">Play</button>
+            <button onclick="showPage('articles')">Edit</button>
+            <button onclick="showPage('production')">Video</button>
+            <button onclick="showPage('about')">Window</button>
+            <button onclick="goHome()">Enjoy</button>
+        </div>
+
+        <span>/home/iqra - qutebrowser</span>
+
+        <span id="date">NOV 05 12:00 AM</span>
+
+    </div>
+
+
+    <!-- LEFT WIDGET -->
+
+    <div class="widget">
+
+        <div class="computer-icon">▣</div>
+
+        <div class="clock" id="clock">11:28 AM</div>
+
+        <div class="stat">
+            vol
+            <div class="stat-bar"><div class="stat-fill"></div></div>
+        </div>
+
+        <div class="stat">
+            cpu
+            <div class="stat-bar"><div class="stat-fill"></div></div>
+        </div>
+
+        <div class="stat">
+            ram
+            <div class="stat-bar"><div class="stat-fill"></div></div>
+        </div>
+
+        <div class="music">
+            <strong>NOW PLAYING</strong>
+            <small>Currently vibing to: your playlist</small>
+
+            <div class="music-controls">
+                <span>◀</span>
+                <span>Ⅱ</span>
+                <span>▶</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- DESKTOP ICONS -->
+
+    <div class="desktop-icons">
+
+        <button class="desktop-icon" onclick="goHome()">
+            <span class="icon">▣</span>
+            Desktop
+        </button>
+
+        <button class="desktop-icon" onclick="showPage('articles')">
+            <span class="icon">📂</span>
+            Articles
+        </button>
+
+        <button class="desktop-icon" onclick="showPage('production')">
+            <span class="icon">◉</span>
+            Production
+        </button>
+
+        <button class="desktop-icon" onclick="showPage('about')">
+            <span class="icon">▤</span>
+            My Life
+        </button>
+
+    </div>
+
+
+    <!-- BOTTOM WIDGET -->
+
+    <div class="track-info">
+        <strong>IQRA'S MEDIA ARCHIVE</strong><br>
+        A collection of ideas,<br>
+        experiments and observations.<br>
+        Status: Still under construction.
+    </div>
+
+
+    <!-- MAIN BROWSER -->
+
+    <div class="browser">
+
+        <div class="window-header">
+
+            <div class="window-dot"></div>
+            <div class="window-dot"></div>
+
+            <div class="window-title" id="windowTitle">
+                /home/iqra - qutebrowser
+            </div>
+
+        </div>
+
+
+        <div class="browser-content">
+
+            <input class="search" id="search"
+                placeholder="Search the archive..."
+                onkeydown="if(event.key==='Enter') searchBlog(this.value)">
+
+
+            <!-- HOME PAGE -->
+
+            <div class="page active" id="home">
+
+                <div class="welcome">
+
+                    <h2>Welcome!</h2>
+
+                    <p>Me. Iqra. A camera. Too many ideas.</p>
+
+                    <div class="socials">
+                        <a href="https://github.com/" target="_blank">@github</a>
+                        <a href="#articles" onclick="showPage('articles')">@blog</a>
+                        <a href="#about" onclick="showPage('about')">@about</a>
+                    </div>
+
+                </div>
+
+
+                <div class="quick-links">
+
+                    <a href="#" onclick="showPage('articles');return false;" title="Articles">▤</a>
+
+                    <a href="#" onclick="showPage('production');return false;" title="Production">◉</a>
+
+                    <a href="#" onclick="showPage('about');return false;" title="About">♡</a>
+
+                    <a href="#" onclick="goHome();return false;" title="Home">⌂</a>
+
+                </div>
+
+                <div style="margin-top:25px;text-align:center;font-size:10px;">
+                    <strong>WHAT'S NEW?</strong>
+                    <p style="margin-top:10px;font-size:10px;">
+                        Welcome to my little corner of the internet.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- ARTICLES PAGE -->
+
+            <div class="page" id="articles">
+
+                <button class="back" onclick="goHome()">← BACK</button>
+
+                <h2>The archive.</h2>
+
+                <p>Things I've been learning, analysing and creating.</p>
+
+                <div class="post" onclick="openPost('camera')">
+                    <h3>01. The language of the lens</h3>
+                    <p>Camera angles, shots and composition.</p>
+                </div>
+
+                <div class="post" onclick="openPost('mise')">
+                    <h3>02. Everything in its place</h3>
+                    <p>Mise-en-scène and visual storytelling.</p>
+                </div>
+
+                <div class="post" onclick="openPost('sound')">
+                    <h3>03. What we hear matters</h3>
+                    <p>Sound design and atmosphere.</p>
+                </div>
+
+                <div class="post" onclick="openPost('editing')">
+                    <h3>04. It's all in the cut</h3>
+                    <p>Editing, transitions and pacing.</p>
+                </div>
+
+            </div>
+
+
+            <!-- INDIVIDUAL POSTS -->
+
+            <div class="page" id="post">
+
+                <button class="back" onclick="showPage('articles')">
+                    ← ARCHIVE
+                </button>
+
+                <div id="postContent"></div>
+
+            </div>
+
+
+            <!-- PRODUCTION PAGE -->
+
+            <div class="page" id="production">
+
+                <button class="back" onclick="goHome()">← BACK</button>
+
+                <h2>Behind the scenes.</h2>
+
+                <p>My production diary. The process behind the final product.</p>
+
+                <div class="post">
+                    <h3>01. Research & Planning</h3>
+                    <p>Initial ideas, inspiration and storyboarding.</p>
+                </div>
+
+                <div class="post">
+                    <h3>02. Production</h3>
+                    <p>Filming, shot composition and experiments.</p>
+                </div>
+
+                <div class="post">
+                    <h3>03. Post-production</h3>
+                    <p>Editing, sound and final adjustments.</p>
+                </div>
+
+                <div class="post">
+                    <h3>04. Evaluation</h3>
+                    <p>What worked, what didn't and what I learned.</p>
+                </div>
+
+            </div>
+
+
+            <!-- ABOUT PAGE -->
+
+            <div class="page" id="about">
+
+                <button class="back" onclick="goHome()">← BACK</button>
+
+                <h2>Hey, I'm Iqra.</h2>
+
+                <p>
+                    Welcome to my digital workspace.
+                    This is where I document my Media Studies
+                    journey, explore filmmaking techniques,
+                    experiment with creative ideas and
+                    analyse the media around me.
+                </p>
+
+                <p>
+                    Interests include photography, filmmaking,
+                    editing, visual storytelling and probably
+                    opening too many browser tabs.
+                </p>
+
+                <p>Still learning. Always creating.</p>
+
+                <div class="post">
+                    <h3>Currently exploring</h3>
+                    <p>Camera work · Sound · Editing · Storytelling</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* OPENING MESSAGES */
+
+const conversation = [
+    {
+        text: "omg, have you heard?",
+        type: "sent",
+        delay: 1200
+    },
+    {
+        text: "iqra finalllyyy did her media studies blog",
+        type: "sent",
+        delay: 1800
+    },
+    {
+        text: "yea",
+        type: "received",
+        delay: 2000
+    },
+    {
+        text: "lets go check it out",
+        type: "received",
+        delay: 1600
+    }
+];
+
+const messages = document.getElementById("messages");
+const typing = document.getElementById("typing");
+const enter = document.getElementById("enter");
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+async function startConversation() {
+
+    for (const msg of conversation) {
+
+        typing.style.display = "flex";
+
+        await sleep(msg.delay);
+
+        typing.style.display = "none";
+
+        const bubble = document.createElement("div");
+
+        bubble.className = "bubble " + msg.type;
+        bubble.textContent = msg.text;
+
+        messages.appendChild(bubble);
+
+        await sleep(450);
+    }
+
+    await sleep(700);
+
+    enter.classList.add("show");
+}
+
+startConversation();
+
+
+/* TRANSITION TO DESKTOP */
+
+function enterDesktop() {
+
+    document.getElementById("intro").classList.add("hide");
+
+}
+
+
+/* CLOCK */
+
+function updateClock() {
+
+    const now = new Date();
+
+    document.getElementById("clock").textContent =
+        now.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+    document.getElementById("date").textContent =
+        now.toLocaleDateString([], {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric'
+        }) + " " + now.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
+/* NAVIGATION */
+
+function goHome() {
+    showPage('home');
+}
+
+function showPage(page) {
+
+    document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+    });
+
+    document.getElementById(page).classList.add('active');
+
+    const titles = {
+        home: '/home/iqra - qutebrowser',
+        articles: 'Media Archive - qutebrowser',
+        production: 'Production Diary - qutebrowser',
+        about: 'About Me - qutebrowser',
+        post: 'Article - qutebrowser'
+    };
+
+    document.getElementById("windowTitle").textContent =
+        titles[page] || 'Iqra - qutebrowser';
+
+}
+
+
+/* INDIVIDUAL ARTICLES */
+
+const posts = {
+
+    camera: {
+        title: "The language of the lens.",
+        category: "CAMERA & COMPOSITION",
+        text: `Camera techniques influence how an audience
+        interprets a scene. A close-up can emphasise
+        emotion and facial expressions, whereas a long
+        shot can establish a character's relationship
+        with their surroundings.
+
+        Camera movement also contributes to storytelling.
+        A tracking shot can follow a character's journey,
+        while a static shot can create a sense of observation
+        or stillness.
+
+        Composition, framing and perspective work together
+        to guide the audience's attention and construct meaning.`
+    },
+
+    mise: {
+        title: "Everything in its place.",
+        category: "MISE-EN-SCÈNE",
+        text: `Mise-en-scène includes everything placed within
+        the frame: setting, costume, props, lighting and colour.
+
+        These elements communicate information about
+        characters, their environments and the atmosphere
+        of a particular scene.
+
+        Lighting can establish mood, costume can suggest
+        personality and props can carry symbolic meaning.
+        Even small details can influence the way an audience
+        interprets a visual narrative.`
+    },
+
+    sound: {
+        title: "What we hear matters.",
+        category: "SOUND DESIGN",
+        text: `Sound contributes to the atmosphere and meaning
+        of moving images. Dialogue, music, ambience and
+        sound effects all shape the audience's experience.
+
+        Diegetic sound originates within the narrative world,
+        whereas non-diegetic sound exists outside it,
+        such as a background musical score.
+
+        The use of silence can also create anticipation
+        and emphasise particular moments.`
+    },
+
+    editing: {
+        title: "It's all in the cut.",
+        category: "EDITING",
+        text: `Editing determines how individual shots are
+        arranged into a sequence. Continuity editing
+        maintains a sense of spatial and temporal consistency.
+
+        Montage can communicate information through
+        a sequence of images, while the pace of editing
+        influences the rhythm and atmosphere of a scene.
+
+        Rapid cuts can create urgency, whereas longer
+        takes allow the audience to observe and absorb
+        what is happening.`
+    }
+
+};
+
+function openPost(id) {
+
+    const post = posts[id];
+
+    document.getElementById("postContent").innerHTML = `
+        <div style="color:#927044;font-size:10px;margin-bottom:15px;">
+            ${post.category}
+        </div>
+        <h2>${post.title}</h2>
+        <p style="white-space:pre-line;margin-top:15px;">
+            ${post.text}
+        </p>
+    `;
+
+    showPage('post');
+
+}
+
+
+/* SEARCH */
+
+function searchBlog(query) {
+
+    const value = query.toLowerCase().trim();
+
+    if (!value) return;
+
+    const match = Object.entries(posts).find(([id, post]) =>
+        (post.title + post.category + post.text)
+        .toLowerCase().includes(value)
+    );
+
+    if (match) {
+        openPost(match[0]);
+    } else {
+        alert("No results found. Try camera, sound, editing or mise-en-scène!");
+    }
+
+}
+
+</script>
+
+</body>
+</html>
