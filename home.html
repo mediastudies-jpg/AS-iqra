@@ -82,21 +82,6 @@ body {
     text-decoration: underline;
 }
 
-/* WIDGET */
-
-.widget {
-    position: absolute;
-    top: 85px;
-    left: 18px;
-    width: 195px;
-    padding: 18px;
-    background: var(--cream);
-    border: 3px solid var(--black);
-    border-radius: 13px;
-    box-shadow: 4px 5px 0 var(--black);
-    z-index: 2;
-}
-
 .computer-icon {
     font-size: 37px;
     text-align: center;
@@ -140,29 +125,6 @@ body {
     background: #c5dcb8;
 }
 
-.music {
-    margin-top: 20px;
-    border-top: 2px solid var(--black);
-    padding-top: 12px;
-    font-size: 9px;
-}
-
-.music strong {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.music small {
-    color: #777;
-}
-
-.music-controls {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-top: 8px;
-    font-size: 15px;
-}
 
 /* DESKTOP ICONS */
 
@@ -176,47 +138,10 @@ body {
     z-index: 2;
 }
 
-#img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 35px;
-    width: 35px;
-    overflow: hidden;
-}
 
-#img img {
-    max-width: 100%;
-    max-height: 100%;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
 
-.desktop-icon {
-    width: 75px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--black);
-    font-family: inherit;
-    text-align: center;
-    font-size: 11px;
-}
 
-.desktop-icon .icon {
-    font-size: 36px;
-    display: block;
-    margin-bottom: 4px;
-    filter: grayscale(1);
-    transition: transform .2s;
-}
 
-.desktop-icon:hover .icon {
-    transform: translateY(-5px);
-}
-
-/* MAIN BROWSER WINDOW */
 
 .browser {
     position: absolute;
@@ -622,7 +547,7 @@ body {
             <span></span><span></span><span></span>
         </div>
         <button class="enter" id="enter" onclick="enterDesktop()">
-            OPEN DESKTOP ↗
+            OPEN BLOG↗
         </button>
     </div>
 </div>
@@ -635,11 +560,12 @@ body {
     <div class="topbar">
         <div class="top-left">
             <span>▣</span>
-            <button onclick="goHome()">Play</button>
-            <button onclick="showPage('articles')">Edit</button>
-            <button onclick="showPage('production')">Video</button>
-            <button onclick="showPage('about')">Window</button>
-            <button onclick="goHome()">Enjoy</button>
+            <button onclick="goHome()">Return Home 🛸</button>
+            <button onclick="showPage('articles')">Blog Posts</button>
+            <button onclick="showPage('production')">Production</button>
+            <button onclick="showPage('prelim')">Preliminary tasks</button>
+            <button onclick="showPage('about')">About me :P</button>
+        
         </div>
     </div> <!-- FIXED: Added missing closing tag here -->
 
@@ -669,7 +595,7 @@ body {
             <div class="window-dot"></div>
             <div class="window-dot"></div>
             <div class="window-title" id="windowTitle">
-                /home/iqra - qutebrowser
+                /home/iqra - shudio
             </div>
         </div>
 
@@ -681,18 +607,13 @@ body {
                     <h2>Welcome!</h2>
                     <p>Me. Iqra. A camera. Too many ideas.</p>
                     <div class="socials">
-                        <a href="https://github.com/" target="_blank">@github</a>
+                        <a href="https://www.instagram.com/sastaamerican/" target="_blank">@instagram</a>
                         <a href="#articles" onclick="showPage('articles')">@blog</a>
                         <a href="#about" onclick="showPage('about')">@about</a>
                     </div>
                 </div>
 
-                <div class="quick-links">
-                    <a href="#" onclick="showPage('articles');return false;" title="Articles">▤</a>
-                    <a href="#" onclick="showPage('production');return false;" title="Production">◉</a>
-                    <a href="#" onclick="showPage('about');return false;" title="About">♡</a>
-                    <a href="#" onclick="goHome();return false;" title="Home">⌂</a>
-                </div>
+               
             </div>
 
             <!-- ARTICLES PAGE -->
@@ -729,34 +650,12 @@ body {
                 </button>
                 <div id="postContent"></div>
             </div>
+            
 
             <!-- PRODUCTION PAGE -->
             <div class="page" id="production">
                 <button class="back" onclick="goHome()">← BACK</button>
-                <h2>Behind the scenes.</h2>
-                <p>My production diary. The process behind the final product.</p>
-
-                <div class="post">
-                    <h3>01. Research & Planning</h3>
-                    <p>Initial ideas, inspiration and storyboarding.</p>
-                </div>
-
-                <div class="post">
-                    <h3>02. Production</h3>
-                    <p>Filming, shot composition and experiments.</p>
-                </div>
-
-                <div class="post">
-                    <h3>03. Post-production</h3>
-                    <p>Editing, sound and final adjustments.</p>
-                </div>
-
-                <div class="post">
-                    <h3>04. Evaluation</h3>
-                    <p>What worked, what didn't and what I learned.</p>
-                </div>
-            </div>
-
+              
             <!-- ABOUT PAGE -->
             <div class="page" id="about">
                 <button class="back" onclick="goHome()">← BACK</button>
@@ -775,10 +674,7 @@ body {
                 </p>
                 <p>Still learning. Always creating.</p>
 
-                <div class="post">
-                    <h3>Currently exploring</h3>
-                    <p>Camera work · Sound · Editing · Storytelling</p>
-                </div>
+
             </div>
 
         </div>
@@ -836,15 +732,15 @@ function showPage(page) {
     document.getElementById(page).classList.add('active');
 
     const titles = {
-        home: '/home/iqra - qutebrowser',
-        articles: 'Media Archive - qutebrowser',
-        production: 'Production Diary - qutebrowser',
-        about: 'About Me - qutebrowser',
-        post: 'Article - qutebrowser'
+        home: '/main/shudio',
+        articles: 'Media Archive - shudio',
+        production: 'Production Diary - shudio',
+        about: 'About Me - shudio',
+        post: 'Article - shudio'
     };
 
     document.getElementById("windowTitle").textContent =
-        titles[page] || 'Iqra - qutebrowser';
+        titles[page] || 'Iqra - shudio';
 }
 
 /* INDIVIDUAL ARTICLES */
