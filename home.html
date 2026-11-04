@@ -696,13 +696,6 @@ body {
         </div>
 
 
-        <div class="browser-content">
-
-            <input class="search" id="search"
-                placeholder="Search the archive..."
-                onkeydown="if(event.key==='Enter') searchBlog(this.value)">
-
-
             <!-- HOME PAGE -->
 
             <div class="page active" id="home">
@@ -734,12 +727,7 @@ body {
 
                 </div>
 
-                <div style="margin-top:25px;text-align:center;font-size:10px;">
-                    <strong>WHAT'S NEW?</strong>
-                    <p style="margin-top:10px;font-size:10px;">
-                        Welcome to my little corner of the internet.
-                    </p>
-                </div>
+        
 
             </div>
 
@@ -1079,24 +1067,6 @@ function openPost(id) {
 
 /* SEARCH */
 
-function searchBlog(query) {
-
-    const value = query.toLowerCase().trim();
-
-    if (!value) return;
-
-    const match = Object.entries(posts).find(([id, post]) =>
-        (post.title + post.category + post.text)
-        .toLowerCase().includes(value)
-    );
-
-    if (match) {
-        openPost(match[0]);
-    } else {
-        alert("No results found. Try camera, sound, editing or mise-en-scène!");
-    }
-
-}
 
 </script>
 
