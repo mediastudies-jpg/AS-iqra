@@ -168,11 +168,11 @@ body {
     padding: 18px;
 }
 
-/* WELCOME CARD */
+/* WELCOME & AO OBJECTIVE CARDS */
 
 .welcome {
-    margin-top: 20px;
-    padding: 25px 15px;
+    margin-top: 10px;
+    padding: 20px 15px;
     background: var(--cream);
     border: 3px solid var(--black);
     border-radius: 13px;
@@ -182,12 +182,12 @@ body {
 
 .welcome h2 {
     font-size: 21px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .welcome p {
     font-size: 11px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .socials {
@@ -208,6 +208,47 @@ body {
 
 .socials a:hover {
     background: var(--blue);
+}
+
+.ao-section {
+    margin-top: 20px;
+}
+
+.ao-section h3 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 4px;
+}
+
+.ao-card {
+    background: var(--cream);
+    border: 2px solid var(--black);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--black);
+    text-align: left;
+}
+
+.ao-card h4 {
+    font-size: 12px;
+    color: #125eb0;
+    margin-bottom: 5px;
+}
+
+.ao-card p {
+    font-size: 10px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.ao-card ul {
+    margin-top: 5px;
+    padding-left: 15px;
+    font-size: 10px;
+    line-height: 1.5;
 }
 
 /* PAGE CONTENT INSIDE BROWSER */
@@ -329,6 +370,15 @@ body {
     opacity: 0;
     transition: all .5s ease-in-out;
     font-size: 10px;
+}
+
+.timeline-img {
+    width: 100%;
+    height: auto;
+    border: 1.5px solid var(--black);
+    border-radius: 5px;
+    margin-top: 8px;
+    display: block;
 }
 
 .timeline ul li:nth-child(odd) div {
@@ -549,7 +599,7 @@ body {
         <div class="top-left">
             <span>▣</span>
             <button onclick="goHome()">Return Home 🛸</button>
-            <button onclick="showPage('articles')">Blog Posts</button>
+            <button onclick="showPage('articles')">Research</button>
             <button onclick="showPage('production')">Production</button>
             <button onclick="showPage('prelim')">Preliminary tasks</button>
             <button onclick="showPage('about')">About me :P</button>
@@ -592,11 +642,32 @@ body {
             <div class="page active" id="home">
                 <div class="welcome">
                     <h2>Welcome!</h2>
-                    <p>I. Am. Iqra. Yea. </p>
+                    <p>I. Am. Iqra. Yea.</p>
                     <div class="socials">
                         <a href="https://www.instagram.com/sastaamerican/" target="_blank">@instagram</a>
                         <a href="#articles" onclick="showPage('articles')">@blog</a>
                         <a href="#about" onclick="showPage('about')">@about</a>
+                    </div>
+                </div>
+
+                <!-- COURSE OBJECTIVES -->
+                <div class="ao-section">
+                    <h3>Course Objectives</h3>
+                    <div class="ao-card">
+                        <h4>AO1: Knowledge & Understanding</h4>
+                        <p>Demonstrate knowledge and understanding of media concepts, contexts, and critical debates in real-world texts and personal work using terminology appropriately.</p>
+                    </div>
+                    <div class="ao-card">
+                        <h4>AO2: Application & Analysis</h4>
+                        <p>Analyse media products, and research, plan, and evaluate personal work by:</p>
+                        <ul>
+                            <li>Applying understanding of meaning creation through theoretical and creative approaches.</li>
+                            <li>Selecting relevant textual evidence in support of analytical views.</li>
+                        </ul>
+                    </div>
+                    <div class="ao-card">
+                        <h4>AO3: Construction & Skill</h4>
+                        <p>Construct critically informed media products using appropriate technical and creative skills.</p>
                     </div>
                 </div>
             </div>
@@ -627,7 +698,7 @@ body {
                     <p>Editing, transitions and pacing.</p>
                 </div>
 
-                <!-- HISTORY OF MEDIA TIMELINE -->
+                <!-- HISTORY OF MEDIA TIMELINE WITH IMAGES -->
                 <section class="timeline-section">
                     <h2>History of Media ↓</h2>
                     
@@ -637,102 +708,70 @@ body {
                                 <div>
                                     <time>15th Century</time>
                                     <p>Johannes Gutenberg’s invention of the movable type printing press made mass production of print media possible, helping usher in massive cultural movements like the European Renaissance and the Protestant Reformation.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <time>1800s</time>
-                                    <p>In addition to the breakthroughs in audio broadcasting, inventors in the 1800s made significant advances in visual media.</p>
+                                    <img class="timeline-img" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Gutenberg_press.png" alt="Gutenberg Printing Press">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1810</time>
                                     <p>German printer Friedrich Koenig pushed media production even further when he hooked the steam engine up to a printing press, enabling the industrialization of printed media.</p>
+                                    <img class="timeline-img" src="https://historyofinformation.com/images/Screen_Shot_2018-12-01_at_10.13.06_AM_big.png" alt="Steam Powered Printing Press">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1830s</time>
                                     <p>Major daily newspapers faced a new threat from the rise of penny papers—low-priced broadsheets serving sensational daily news of murder and adventure over dry political news.</p>
+                                    <img class="timeline-img" src="https://imgv2-2-f.scribdassets.com/img/document/929265575/original/62df97e4f0/1?v=1" alt="Penny Press Newspaper Era">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1888</time>
                                     <p>George Eastman developed the Kodak camera, anticipating that Americans would welcome an inexpensive, easy-to-use camera into their homes as they had with the radio and telephone.</p>
+                                    <img class="timeline-img" src="https://www.eastman.org/sites/default/files/styles/gallery_large/public/DSC_0183_0.jpg" alt="First Kodak Camera 1888">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1905</time>
                                     <p>Moving pictures were first seen around the turn of the century, with the first U.S. projection-hall opening in Pittsburgh in 1905.</p>
+                                    <img class="timeline-img" src="https://upload.wikimedia.org/wikipedia/commons/3/32/ComiqueTheatre.jpg" alt="Nickelodeon Movie Theater Pittsburgh 1905">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1920s</time>
-                                    <p>Radios were less expensive than telephones and widely available by the 1920s, allowing huge numbers of people to listen to the same event at the same time. Did radio fuel the consumerist boom of the 1920s, or did it become popular because it appealed to a society already exploring consumerist tendencies? Probably a little bit of both.</p>
+                                    <p>Radios were less expensive than telephones and widely available by the 1920s, allowing huge numbers of people to listen to the same event at the same time.</p>
+                                    <img class="timeline-img" src="https://upload.wikimedia.org/wikipedia/commons/7/74/Radio_receivers_used_in_1920s.png" alt="1920s Vintage Radio Receivers">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1920s - 1930s</time>
                                     <p>Hollywood had already created its first stars, most notably Charlie Chaplin; by the end of the 1930s, Americans were watching color films with full sound.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <time>1924</time>
-                                    <p>Calvin Coolidge’s preelection speech reached more than 20 million people. Radio was a boon for advertisers, who now had access to a large and captive audience.</p>
+                                    <img class="timeline-img" src="https://cdn.britannica.com/50/90550-050-B7EBB04E/Charlie-Chaplin-City-Lights-Harry-Myers.jpg" alt="Charlie Chaplin Silent Film">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1946</time>
                                     <p>About 17,000 televisions existed in the United States.</p>
+                                    <img class="timeline-img" src="https://p.turbosquid.com/ts-thumb/v2/RozhW5/tN3n2HHR/tv2/jpg/1498545790/600x600/fit_q87/3d4f3d1fff16f6f92f3ca68ef23d1eedd37b2cbc/tv2.jpg" alt="1940s Vintage Television Set">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1960s</time>
-                                    <p>Media theorist Marshall McLuhan famously coined the phrase “the medium is the message (McLuhan, 1964),” meaning that every medium delivers information differently and content is shaped by its medium of transmission.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <time>1969</time>
-                                    <p>Management consultant Peter Drucker predicted that the next major technological innovation would be an electronic appliance that would revolutionize the way people lived just as thoroughly as Thomas Edison’s light bulb had.</p>
+                                    <p>Media theorist Marshall McLuhan famously coined the phrase “the medium is the message (McLuhan, 1964),” meaning that every medium delivers information differently.</p>
+                                    <img class="timeline-img" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Marshall_McLuhan.jpg" alt="Marshall McLuhan">
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1980s & 1990s</time>
                                     <p>The media world faced drastic changes once again with the spread of cable television.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <time>1994</time>
-                                    <p>“Each medium has a special way of representing ideas that emphasize particular ways of thinking and de-emphasize others (Kay, 1994).” Written when the Internet was just transitioning to an open public system.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <time>1996</time>
-                                    <p>The Telecommunications Act of 1996 attempted to foster competition by deregulating the industry, but resulted in mergers that left broadcast control in the hands of a few large corporations.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <time>1997</time>
-                                    <p>Treating television as evil is just as reductive and silly as treating it like a toaster with pictures (Wallace, 1997).</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <time>Late 1990s</time>
-                                    <p>Until the advent of digital video recorders in the late 1990s, it was impossible to pause and rewind a live television broadcast.</p>
+                                    <img class="timeline-img" src="https://www.bgr.com/img/gallery/tvs-every-80-kid-remembers/intro-1774448020.jpg" alt="Vintage 1980s Cable Television">
                                 </div>
                             </li>
                         </ul>
@@ -766,6 +805,8 @@ body {
             <div class="page" id="about">
                 <button class="back" onclick="goHome()">← BACK</button>
                 <h2>Hey, I'm Iqra.</h2>
+                <p>Everything is awesome</p>
+            
                 <p>
                     Welcome to my digital workspace.
                     This is where I document my Media Studies
