@@ -68,6 +68,8 @@ body {
 .top-left {
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .topbar button {
@@ -117,7 +119,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* MAIN BROWSER WINDOW */
+/* BROWSER WINDOW */
 
 .browser {
     position: absolute;
@@ -208,30 +210,6 @@ body {
     background: var(--blue);
 }
 
-/* QUICK LINKS */
-
-.quick-links {
-    margin-top: 30px;
-    background: var(--cream);
-    border: 3px solid var(--black);
-    border-radius: 12px;
-    box-shadow: 4px 5px 0 var(--black);
-    padding: 17px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
-}
-
-.quick-links a {
-    color: var(--black);
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.quick-links a:hover {
-    transform: scale(1.2);
-}
-
 /* PAGE CONTENT INSIDE BROWSER */
 
 .page {
@@ -292,16 +270,12 @@ body {
     background: #fff;
 }
 
-/* STATIC MEDIA TIMELINE STYLING */
+/* TIMELINE STYLING */
 
 .timeline-section {
     margin-top: 35px;
     border-top: 3px solid var(--black);
     padding-top: 20px;
-}
-
-.timeline-section h2 {
-    margin-bottom: 20px;
 }
 
 .timeline {
@@ -506,7 +480,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* MOBILE RESPONSIVENESS FOR TIMELINE */
+/* MOBILE */
 
 @media(max-width: 650px) {
     .desktop-icons {
@@ -561,7 +535,7 @@ body {
             <span></span><span></span><span></span>
         </div>
         <button class="enter" id="enter" onclick="enterDesktop()">
-            OPEN DESKTOP ↗
+            OPEN BLOG↗
         </button>
     </div>
 </div>
@@ -574,11 +548,11 @@ body {
     <div class="topbar">
         <div class="top-left">
             <span>▣</span>
-            <button onclick="goHome()">Play</button>
-            <button onclick="showPage('articles')">Edit</button>
-            <button onclick="showPage('production')">Video</button>
-            <button onclick="showPage('about')">Window</button>
-            <button onclick="goHome()">Enjoy</button>
+            <button onclick="goHome()">Return Home 🛸</button>
+            <button onclick="showPage('articles')">Blog Posts</button>
+            <button onclick="showPage('production')">Production</button>
+            <button onclick="showPage('prelim')">Preliminary tasks</button>
+            <button onclick="showPage('about')">About me :P</button>
         </div>
     </div>
 
@@ -608,7 +582,7 @@ body {
             <div class="window-dot"></div>
             <div class="window-dot"></div>
             <div class="window-title" id="windowTitle">
-                /home/iqra - qutebrowser
+                /main/shudio
             </div>
         </div>
 
@@ -620,17 +594,10 @@ body {
                     <h2>Welcome!</h2>
                     <p>Me. Iqra. A camera. Too many ideas.</p>
                     <div class="socials">
-                        <a href="https://github.com/" target="_blank">@github</a>
+                        <a href="https://www.instagram.com/sastaamerican/" target="_blank">@instagram</a>
                         <a href="#articles" onclick="showPage('articles')">@blog</a>
                         <a href="#about" onclick="showPage('about')">@about</a>
                     </div>
-                </div>
-
-                <div class="quick-links">
-                    <a href="#" onclick="showPage('articles');return false;" title="Articles">▤</a>
-                    <a href="#" onclick="showPage('production');return false;" title="Production">◉</a>
-                    <a href="#" onclick="showPage('about');return false;" title="About">♡</a>
-                    <a href="#" onclick="goHome();return false;" title="Home">⌂</a>
                 </div>
             </div>
 
@@ -669,55 +636,55 @@ body {
                             <li>
                                 <div>
                                     <time>15th Century</time>
-                                    <p>Johannes Gutenberg's invention of the movable type printing press made mass production of print media possible, ushering in massive cultural movements like the European Renaissance and the Protestant Reformation.</p>
+                                    <p>Johannes Gutenberg’s invention of the movable type printing press made mass production of print media possible, helping usher in massive cultural movements like the European Renaissance and the Protestant Reformation.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1800s</time>
-                                    <p>In addition to breakthroughs in audio broadcasting, inventors made significant advances in visual media during this century.</p>
+                                    <p>In addition to the breakthroughs in audio broadcasting, inventors in the 1800s made significant advances in visual media.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1810</time>
-                                    <p>German printer Friedrich Koenig pushed media production even further when he hooked the steam engine to a printing press, enabling the industrialization of printed media.</p>
+                                    <p>German printer Friedrich Koenig pushed media production even further when he hooked the steam engine up to a printing press, enabling the industrialization of printed media.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1830s</time>
-                                    <p>Major daily newspapers faced a threat from the rise of penny papers—cheap broadsheets that served sensational daily news of murder and adventure over dry political news.</p>
+                                    <p>Major daily newspapers faced a new threat from the rise of penny papers—low-priced broadsheets serving sensational daily news of murder and adventure over dry political news.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1888</time>
-                                    <p>George Eastman developed the Kodak camera, anticipating that Americans would welcome an inexpensive, easy-to-use camera into their homes.</p>
+                                    <p>George Eastman developed the Kodak camera, anticipating that Americans would welcome an inexpensive, easy-to-use camera into their homes as they had with the radio and telephone.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1905</time>
-                                    <p>Moving pictures were first seen around the turn of the century, leading to the first U.S. projection-hall opening in Pittsburgh in 1905.</p>
+                                    <p>Moving pictures were first seen around the turn of the century, with the first U.S. projection-hall opening in Pittsburgh in 1905.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1920s</time>
-                                    <p>Radios became widely available, allowing huge numbers of people to listen to the same event simultaneously. Did radio fuel the consumerist boom of the 1920s, or appeal to an already consumerist society? Probably a bit of both.</p>
+                                    <p>Radios were less expensive than telephones and widely available by the 1920s, allowing huge numbers of people to listen to the same event at the same time. Did radio fuel the consumerist boom of the 1920s, or did it become popular because it appealed to a society already exploring consumerist tendencies? Probably a little bit of both.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1920s - 1930s</time>
-                                    <p>Hollywood created its first stars, most notably Charlie Chaplin. By the end of the 1930s, Americans were watching color films with full sound.</p>
+                                    <p>Hollywood had already created its first stars, most notably Charlie Chaplin; by the end of the 1930s, Americans were watching color films with full sound.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1924</time>
-                                    <p>Calvin Coolidge's preelection speech reached over 20 million people on radio, proving to be a boon for advertisers with a captive audience.</p>
+                                    <p>Calvin Coolidge’s preelection speech reached more than 20 million people. Radio was a boon for advertisers, who now had access to a large and captive audience.</p>
                                 </div>
                             </li>
                             <li>
@@ -729,37 +696,37 @@ body {
                             <li>
                                 <div>
                                     <time>1960s</time>
-                                    <p>Media theorist Marshall McLuhan famously coined the phrase “the medium is the message” (1964), asserting that content is fundamentally shaped by its medium of transmission.</p>
+                                    <p>Media theorist Marshall McLuhan famously coined the phrase “the medium is the message (McLuhan, 1964),” meaning that every medium delivers information differently and content is shaped by its medium of transmission.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1969</time>
-                                    <p>Management consultant Peter Drucker predicted that the next major technological innovation would be an electronic appliance revolutionizing life as thoroughly as Thomas Edison's light bulb.</p>
+                                    <p>Management consultant Peter Drucker predicted that the next major technological innovation would be an electronic appliance that would revolutionize the way people lived just as thoroughly as Thomas Edison’s light bulb had.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <time>1980s - 1990s</time>
-                                    <p>The media world faced drastic changes once again with the widespread spread of cable television.</p>
+                                    <time>1980s & 1990s</time>
+                                    <p>The media world faced drastic changes once again with the spread of cable television.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1994</time>
-                                    <p>Alan Kay wrote: “Each medium has a special way of representing ideas that emphasize particular ways of thinking and de-emphasize others,” right as the Internet transitioned from academic research to an open public system.</p>
+                                    <p>“Each medium has a special way of representing ideas that emphasize particular ways of thinking and de-emphasize others (Kay, 1994).” Written when the Internet was just transitioning to an open public system.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1996</time>
-                                    <p>The Telecommunications Act of 1996 attempted to foster competition through deregulation, but resulted in mergers leaving broadcast control in the hands of a few large corporations.</p>
+                                    <p>The Telecommunications Act of 1996 attempted to foster competition by deregulating the industry, but resulted in mergers that left broadcast control in the hands of a few large corporations.</p>
                                 </div>
                             </li>
                             <li>
                                 <div>
                                     <time>1997</time>
-                                    <p>David Foster Wallace noted: “Treating television as evil is just as reductive and silly as treating it like a toaster with pictures.”</p>
+                                    <p>Treating television as evil is just as reductive and silly as treating it like a toaster with pictures (Wallace, 1997).</p>
                                 </div>
                             </li>
                             <li>
@@ -784,28 +751,15 @@ body {
             <!-- PRODUCTION PAGE -->
             <div class="page" id="production">
                 <button class="back" onclick="goHome()">← BACK</button>
-                <h2>Behind the scenes.</h2>
-                <p>My production diary. The process behind the final product.</p>
+                <h2>Production Diary</h2>
+                <p>Behind the scenes of my media project.</p>
+            </div>
 
-                <div class="post">
-                    <h3>01. Research & Planning</h3>
-                    <p>Initial ideas, inspiration and storyboarding.</p>
-                </div>
-
-                <div class="post">
-                    <h3>02. Production</h3>
-                    <p>Filming, shot composition and experiments.</p>
-                </div>
-
-                <div class="post">
-                    <h3>03. Post-production</h3>
-                    <p>Editing, sound and final adjustments.</p>
-                </div>
-
-                <div class="post">
-                    <h3>04. Evaluation</h3>
-                    <p>What worked, what didn't and what I learned.</p>
-                </div>
+            <!-- PRELIMINARY TASKS PAGE -->
+            <div class="page" id="prelim">
+                <button class="back" onclick="goHome()">← BACK</button>
+                <h2>Preliminary Tasks</h2>
+                <p>Initial assignments and drafts.</p>
             </div>
 
             <!-- ABOUT PAGE -->
@@ -825,11 +779,6 @@ body {
                     opening too many browser tabs.
                 </p>
                 <p>Still learning. Always creating.</p>
-
-                <div class="post">
-                    <h3>Currently exploring</h3>
-                    <p>Camera work · Sound · Editing · Storytelling</p>
-                </div>
             </div>
 
         </div>
@@ -869,10 +818,12 @@ async function startConversation() {
 
 startConversation();
 
+/* TRANSITION TO DESKTOP */
 function enterDesktop() {
     document.getElementById("intro").classList.add("hide");
 }
 
+/* NAVIGATION */
 function goHome() {
     showPage('home');
 }
@@ -885,45 +836,58 @@ function showPage(page) {
     document.getElementById(page).classList.add('active');
 
     const titles = {
-        home: '/home/iqra - qutebrowser',
-        articles: 'Media Archive - qutebrowser',
-        production: 'Production Diary - qutebrowser',
-        about: 'About Me - qutebrowser',
-        post: 'Article - qutebrowser'
+        home: '/main/shudio',
+        articles: 'Media Archive - shudio',
+        production: 'Production Diary - shudio',
+        prelim: 'Preliminary Tasks - shudio',
+        about: 'About Me - shudio',
+        post: 'Article - shudio'
     };
 
     document.getElementById("windowTitle").textContent =
-        titles[page] || 'Iqra - qutebrowser';
-    
-    // Re-trigger viewport check on page load/switch
+        titles[page] || 'Iqra - shudio';
+
+    // Re-trigger viewport check for timeline animation when switching tabs
     callbackFunc();
 }
 
-/* ARTICLES POSTS */
+/* INDIVIDUAL ARTICLES */
 const posts = {
     camera: {
         title: "The language of the lens.",
         category: "CAMERA & COMPOSITION",
         text: `Camera techniques influence how an audience interprets a scene. A close-up can emphasise emotion and facial expressions, whereas a long shot can establish a character's relationship with their surroundings.
 
-Camera movement also contributes to storytelling. A tracking shot can follow a character's journey, while a static shot can create a sense of observation or stillness.`
+Camera movement also contributes to storytelling. A tracking shot can follow a character's journey, while a static shot can create a sense of observation or stillness.
+
+Composition, framing and perspective work together to guide the audience's attention and construct meaning.`
     },
     mise: {
         title: "Everything in its place.",
         category: "MISE-EN-SCÈNE",
         text: `Mise-en-scène includes everything placed within the frame: setting, costume, props, lighting and colour.
 
-These elements communicate information about characters, their environments and the atmosphere of a particular scene.`
+These elements communicate information about characters, their environments and the atmosphere of a particular scene.
+
+Lighting can establish mood, costume can suggest personality and props can carry symbolic meaning. Even small details can influence the way an audience interprets a visual narrative.`
     },
     sound: {
         title: "What we hear matters.",
         category: "SOUND DESIGN",
-        text: `Sound contributes to the atmosphere and meaning of moving images. Dialogue, music, ambience and sound effects all shape the audience's experience.`
+        text: `Sound contributes to the atmosphere and meaning of moving images. Dialogue, music, ambience and sound effects all shape the audience's experience.
+
+Diegetic sound originates within the narrative world, whereas non-diegetic sound exists outside it, such as a background musical score.
+
+The use of silence can also create anticipation and emphasise particular moments.`
     },
     editing: {
         title: "It's all in the cut.",
         category: "EDITING",
-        text: `Editing determines how individual shots are arranged into a sequence. Continuity editing maintains a sense of spatial and temporal consistency.`
+        text: `Editing determines how individual shots are arranged into a sequence. Continuity editing maintains a sense of spatial and temporal consistency.
+
+Montage can communicate information through a sequence of images, while the pace of editing influences the rhythm and atmosphere of a scene.
+
+Rapid cuts can create urgency, whereas longer takes allow the audience to observe and absorb what is happening.`
     }
 };
 
@@ -941,7 +905,7 @@ function openPost(id) {
     showPage('post');
 }
 
-/* SCROLL ANIMATION LOGIC FOR TIMELINE ITEMS */
+/* TIMELINE SCROLL ANIMATION LOGIC */
 function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
     return (
