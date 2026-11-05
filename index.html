@@ -84,6 +84,55 @@ body {
     text-decoration: underline;
 }
 
+/* DROPDOWN STYLING */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.dropbtn:hover {
+    text-decoration: underline;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--cream);
+    min-width: 140px;
+    box-shadow: 3px 3px 0 var(--black);
+    border: 2px solid var(--black);
+    border-radius: 6px;
+    z-index: 20;
+    padding: 6px 0;
+}
+
+.dropdown-content a {
+    color: var(--black);
+    padding: 6px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--blue);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* DESKTOP ICONS */
 
 .desktop-icons {
@@ -599,8 +648,26 @@ body {
         <div class="top-left">
             <span>▣</span>
             <button onclick="goHome()">Return Home 🛸</button>
-            <button onclick="showPage('articles')">Research</button>
-            <button onclick="showPage('production')">Production</button>
+            
+            <!-- Research Dropdown -->
+            <div class="dropdown">
+                <button class="dropbtn">Research</button>
+                <div class="dropdown-content">
+                    <a href="#articles" onclick="showPage('articles')">History of Media</a>
+                    <a href="#articles" onclick="showPage('articles')">Film Analysis</a>
+                </div>
+            </div>
+
+            <!-- Production Dropdown -->
+            <div class="dropdown">
+                <button class="dropbtn">Production</button>
+                <div class="dropdown-content">
+                    <a href="#production" onclick="showPage('production')">Pre-production</a>
+                    <a href="#production" onclick="showPage('production')">Production</a>
+                    <a href="#production" onclick="showPage('production')">Post-production</a>
+                </div>
+            </div>
+
             <button onclick="showPage('prelim')">Preliminary tasks</button>
             <button onclick="showPage('about')">About me :P</button>
         </div>
