@@ -82,50 +82,6 @@ body {
     text-decoration: underline;
 }
 
-.computer-icon {
-    font-size: 37px;
-    text-align: center;
-}
-
-.clock {
-    font-size: 23px;
-    text-align: center;
-    margin: 7px 0 17px;
-}
-
-.stat {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin: 9px 0;
-    font-size: 10px;
-}
-
-.stat-bar {
-    height: 12px;
-    flex: 1;
-    border: 2px solid var(--black);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.stat-fill {
-    height: 100%;
-    width: 70%;
-    background: var(--blue);
-}
-
-.stat:nth-child(2) .stat-fill {
-    width: 45%;
-    background: #f0c3a9;
-}
-
-.stat:nth-child(3) .stat-fill {
-    width: 60%;
-    background: #c5dcb8;
-}
-
-
 /* DESKTOP ICONS */
 
 .desktop-icons {
@@ -138,15 +94,36 @@ body {
     z-index: 2;
 }
 
+.desktop-icon {
+    width: 75px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    font-family: inherit;
+    text-align: center;
+    font-size: 11px;
+}
 
+.desktop-icon .icon {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 4px;
+    filter: grayscale(1);
+    transition: transform .2s;
+}
 
+.desktop-icon:hover .icon {
+    transform: translateY(-5px);
+}
 
-
+/* MAIN BROWSER WINDOW */
 
 .browser {
     position: absolute;
-    width: 460px;
-    height: 470px;
+    width: 680px;
+    max-width: 90vw;
+    height: 540px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -45%);
@@ -187,20 +164,6 @@ body {
     height: calc(100% - 35px);
     overflow-y: auto;
     padding: 18px;
-}
-
-/* SEARCH */
-
-.search {
-    width: 100%;
-    padding: 12px;
-    background: var(--cream);
-    border: 2px solid var(--black);
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 11px;
-    box-shadow: 3px 4px 0 var(--black);
-    outline: none;
 }
 
 /* WELCOME CARD */
@@ -269,21 +232,6 @@ body {
     transform: scale(1.2);
 }
 
-/* BOTTOM WIDGET */
-
-.track-info {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    background: var(--cream);
-    border: 3px solid var(--black);
-    border-radius: 10px;
-    padding: 12px 17px;
-    width: 190px;
-    font-size: 9px;
-    box-shadow: 3px 4px 0 var(--black);
-}
-
 /* PAGE CONTENT INSIDE BROWSER */
 
 .page {
@@ -344,12 +292,95 @@ body {
     background: #fff;
 }
 
-.post-content {
-    display: none;
+/* STATIC MEDIA TIMELINE STYLING */
+
+.timeline-section {
+    margin-top: 35px;
+    border-top: 3px solid var(--black);
+    padding-top: 20px;
 }
 
-.post-content.active {
+.timeline-section h2 {
+    margin-bottom: 20px;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline ul {
+    padding: 0;
+    margin: 0;
+}
+
+.timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 4px;
+    margin: 0 auto;
+    padding-top: 35px;
+    background: var(--black);
+}
+
+.timeline ul li::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--black);
+    z-index: 1;
+    transition: background .3s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+    background: var(--pink);
+}
+
+.timeline ul li div {
+    position: relative;
+    bottom: 0;
+    width: 240px;
+    padding: 12px;
+    background: var(--cream);
+    border: 2px solid var(--black);
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--black);
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    font-size: 10px;
+}
+
+.timeline ul li:nth-child(odd) div {
+    left: 25px;
+    transform: translate3d(40px, 0, 0);
+}
+
+.timeline ul li:nth-child(2n) div {
+    left: -265px;
+    transform: translate3d(-40px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+.timeline ul li div time {
     display: block;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
 }
 
 /* INTRO ANIMATION */
@@ -475,29 +506,9 @@ body {
     transform: translateY(-3px);
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVENESS FOR TIMELINE */
 
 @media(max-width: 650px) {
-
-    .desktop {
-        min-height: 650px;
-    }
-
-    .topbar {
-        font-size: 9px;
-        left: 7px;
-        right: 7px;
-        padding: 0 7px;
-    }
-
-    .top-left {
-        gap: 8px;
-    }
-
-    .widget {
-        display: none;
-    }
-
     .desktop-icons {
         top: auto;
         bottom: 15px;
@@ -518,19 +529,22 @@ body {
     }
 
     .browser {
-        width: 82%;
-        height: 440px;
+        width: 90%;
+        height: 460px;
         top: 47%;
     }
 
-    .track-info {
-        display: none;
+    .timeline ul li {
+        margin-left: 20px;
     }
 
-    .window-title {
-        font-size: 8px;
+    .timeline ul li div {
+        width: calc(100vw - 120px);
     }
 
+    .timeline ul li:nth-child(2n) div {
+        left: 25px;
+    }
 }
 </style>
 </head>
@@ -547,7 +561,7 @@ body {
             <span></span><span></span><span></span>
         </div>
         <button class="enter" id="enter" onclick="enterDesktop()">
-            OPEN BLOG↗
+            OPEN DESKTOP ↗
         </button>
     </div>
 </div>
@@ -560,14 +574,13 @@ body {
     <div class="topbar">
         <div class="top-left">
             <span>▣</span>
-            <button onclick="goHome()">Return Home 🛸</button>
-            <button onclick="showPage('articles')">Blog Posts</button>
-            <button onclick="showPage('production')">Production</button>
-            <button onclick="showPage('prelim')">Preliminary tasks</button>
-            <button onclick="showPage('about')">About me :P</button>
-        
+            <button onclick="goHome()">Play</button>
+            <button onclick="showPage('articles')">Edit</button>
+            <button onclick="showPage('production')">Video</button>
+            <button onclick="showPage('about')">Window</button>
+            <button onclick="goHome()">Enjoy</button>
         </div>
-    </div> <!-- FIXED: Added missing closing tag here -->
+    </div>
 
     <!-- DESKTOP ICONS -->
     <div class="desktop-icons">
@@ -595,7 +608,7 @@ body {
             <div class="window-dot"></div>
             <div class="window-dot"></div>
             <div class="window-title" id="windowTitle">
-                /home/iqra - shudio
+                /home/iqra - qutebrowser
             </div>
         </div>
 
@@ -607,13 +620,18 @@ body {
                     <h2>Welcome!</h2>
                     <p>Me. Iqra. A camera. Too many ideas.</p>
                     <div class="socials">
-                        <a href="https://www.instagram.com/sastaamerican/" target="_blank">@instagram</a>
+                        <a href="https://github.com/" target="_blank">@github</a>
                         <a href="#articles" onclick="showPage('articles')">@blog</a>
                         <a href="#about" onclick="showPage('about')">@about</a>
                     </div>
                 </div>
 
-               
+                <div class="quick-links">
+                    <a href="#" onclick="showPage('articles');return false;" title="Articles">▤</a>
+                    <a href="#" onclick="showPage('production');return false;" title="Production">◉</a>
+                    <a href="#" onclick="showPage('about');return false;" title="About">♡</a>
+                    <a href="#" onclick="goHome();return false;" title="Home">⌂</a>
+                </div>
             </div>
 
             <!-- ARTICLES PAGE -->
@@ -641,6 +659,118 @@ body {
                     <h3>04. It's all in the cut</h3>
                     <p>Editing, transitions and pacing.</p>
                 </div>
+
+                <!-- HISTORY OF MEDIA TIMELINE -->
+                <section class="timeline-section">
+                    <h2>History of Media ↓</h2>
+                    
+                    <div class="timeline">
+                        <ul>
+                            <li>
+                                <div>
+                                    <time>15th Century</time>
+                                    <p>Johannes Gutenberg's invention of the movable type printing press made mass production of print media possible, ushering in massive cultural movements like the European Renaissance and the Protestant Reformation.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1800s</time>
+                                    <p>In addition to breakthroughs in audio broadcasting, inventors made significant advances in visual media during this century.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1810</time>
+                                    <p>German printer Friedrich Koenig pushed media production even further when he hooked the steam engine to a printing press, enabling the industrialization of printed media.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1830s</time>
+                                    <p>Major daily newspapers faced a threat from the rise of penny papers—cheap broadsheets that served sensational daily news of murder and adventure over dry political news.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1888</time>
+                                    <p>George Eastman developed the Kodak camera, anticipating that Americans would welcome an inexpensive, easy-to-use camera into their homes.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1905</time>
+                                    <p>Moving pictures were first seen around the turn of the century, leading to the first U.S. projection-hall opening in Pittsburgh in 1905.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1920s</time>
+                                    <p>Radios became widely available, allowing huge numbers of people to listen to the same event simultaneously. Did radio fuel the consumerist boom of the 1920s, or appeal to an already consumerist society? Probably a bit of both.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1920s - 1930s</time>
+                                    <p>Hollywood created its first stars, most notably Charlie Chaplin. By the end of the 1930s, Americans were watching color films with full sound.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1924</time>
+                                    <p>Calvin Coolidge's preelection speech reached over 20 million people on radio, proving to be a boon for advertisers with a captive audience.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1946</time>
+                                    <p>About 17,000 televisions existed in the United States.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1960s</time>
+                                    <p>Media theorist Marshall McLuhan famously coined the phrase “the medium is the message” (1964), asserting that content is fundamentally shaped by its medium of transmission.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1969</time>
+                                    <p>Management consultant Peter Drucker predicted that the next major technological innovation would be an electronic appliance revolutionizing life as thoroughly as Thomas Edison's light bulb.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1980s - 1990s</time>
+                                    <p>The media world faced drastic changes once again with the widespread spread of cable television.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1994</time>
+                                    <p>Alan Kay wrote: “Each medium has a special way of representing ideas that emphasize particular ways of thinking and de-emphasize others,” right as the Internet transitioned from academic research to an open public system.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1996</time>
+                                    <p>The Telecommunications Act of 1996 attempted to foster competition through deregulation, but resulted in mergers leaving broadcast control in the hands of a few large corporations.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>1997</time>
+                                    <p>David Foster Wallace noted: “Treating television as evil is just as reductive and silly as treating it like a toaster with pictures.”</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <time>Late 1990s</time>
+                                    <p>Until the advent of digital video recorders in the late 1990s, it was impossible to pause and rewind a live television broadcast.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
             </div>
 
             <!-- INDIVIDUAL POSTS -->
@@ -650,12 +780,34 @@ body {
                 </button>
                 <div id="postContent"></div>
             </div>
-            
 
             <!-- PRODUCTION PAGE -->
             <div class="page" id="production">
                 <button class="back" onclick="goHome()">← BACK</button>
-              
+                <h2>Behind the scenes.</h2>
+                <p>My production diary. The process behind the final product.</p>
+
+                <div class="post">
+                    <h3>01. Research & Planning</h3>
+                    <p>Initial ideas, inspiration and storyboarding.</p>
+                </div>
+
+                <div class="post">
+                    <h3>02. Production</h3>
+                    <p>Filming, shot composition and experiments.</p>
+                </div>
+
+                <div class="post">
+                    <h3>03. Post-production</h3>
+                    <p>Editing, sound and final adjustments.</p>
+                </div>
+
+                <div class="post">
+                    <h3>04. Evaluation</h3>
+                    <p>What worked, what didn't and what I learned.</p>
+                </div>
+            </div>
+
             <!-- ABOUT PAGE -->
             <div class="page" id="about">
                 <button class="back" onclick="goHome()">← BACK</button>
@@ -674,7 +826,10 @@ body {
                 </p>
                 <p>Still learning. Always creating.</p>
 
-
+                <div class="post">
+                    <h3>Currently exploring</h3>
+                    <p>Camera work · Sound · Editing · Storytelling</p>
+                </div>
             </div>
 
         </div>
@@ -714,12 +869,10 @@ async function startConversation() {
 
 startConversation();
 
-/* TRANSITION TO DESKTOP */
 function enterDesktop() {
     document.getElementById("intro").classList.add("hide");
 }
 
-/* NAVIGATION */
 function goHome() {
     showPage('home');
 }
@@ -732,54 +885,45 @@ function showPage(page) {
     document.getElementById(page).classList.add('active');
 
     const titles = {
-        home: '/main/shudio',
-        articles: 'Media Archive - shudio',
-        production: 'Production Diary - shudio',
-        about: 'About Me - shudio',
-        post: 'Article - shudio'
+        home: '/home/iqra - qutebrowser',
+        articles: 'Media Archive - qutebrowser',
+        production: 'Production Diary - qutebrowser',
+        about: 'About Me - qutebrowser',
+        post: 'Article - qutebrowser'
     };
 
     document.getElementById("windowTitle").textContent =
-        titles[page] || 'Iqra - shudio';
+        titles[page] || 'Iqra - qutebrowser';
+    
+    // Re-trigger viewport check on page load/switch
+    callbackFunc();
 }
 
-/* INDIVIDUAL ARTICLES */
+/* ARTICLES POSTS */
 const posts = {
     camera: {
         title: "The language of the lens.",
         category: "CAMERA & COMPOSITION",
         text: `Camera techniques influence how an audience interprets a scene. A close-up can emphasise emotion and facial expressions, whereas a long shot can establish a character's relationship with their surroundings.
 
-Camera movement also contributes to storytelling. A tracking shot can follow a character's journey, while a static shot can create a sense of observation or stillness.
-
-Composition, framing and perspective work together to guide the audience's attention and construct meaning.`
+Camera movement also contributes to storytelling. A tracking shot can follow a character's journey, while a static shot can create a sense of observation or stillness.`
     },
     mise: {
         title: "Everything in its place.",
         category: "MISE-EN-SCÈNE",
         text: `Mise-en-scène includes everything placed within the frame: setting, costume, props, lighting and colour.
 
-These elements communicate information about characters, their environments and the atmosphere of a particular scene.
-
-Lighting can establish mood, costume can suggest personality and props can carry symbolic meaning. Even small details can influence the way an audience interprets a visual narrative.`
+These elements communicate information about characters, their environments and the atmosphere of a particular scene.`
     },
     sound: {
         title: "What we hear matters.",
         category: "SOUND DESIGN",
-        text: `Sound contributes to the atmosphere and meaning of moving images. Dialogue, music, ambience and sound effects all shape the audience's experience.
-
-Diegetic sound originates within the narrative world, whereas non-diegetic sound exists outside it, such as a background musical score.
-
-The use of silence can also create anticipation and emphasise particular moments.`
+        text: `Sound contributes to the atmosphere and meaning of moving images. Dialogue, music, ambience and sound effects all shape the audience's experience.`
     },
     editing: {
         title: "It's all in the cut.",
         category: "EDITING",
-        text: `Editing determines how individual shots are arranged into a sequence. Continuity editing maintains a sense of spatial and temporal consistency.
-
-Montage can communicate information through a sequence of images, while the pace of editing influences the rhythm and atmosphere of a scene.
-
-Rapid cuts can create urgency, whereas longer takes allow the audience to observe and absorb what is happening.`
+        text: `Editing determines how individual shots are arranged into a sequence. Continuity editing maintains a sense of spatial and temporal consistency.`
     }
 };
 
@@ -796,6 +940,33 @@ function openPost(id) {
     `;
     showPage('post');
 }
+
+/* SCROLL ANIMATION LOGIC FOR TIMELINE ITEMS */
+function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+function callbackFunc() {
+    var items = document.querySelectorAll(".timeline ul li");
+    for (var i = 0; i < items.length; i++) {
+        if (isElementInViewport(items[i])) {
+            items[i].classList.add("in-view");
+        }
+    }
+}
+
+const browserContent = document.querySelector('.browser-content');
+if (browserContent) {
+    browserContent.addEventListener("scroll", callbackFunc);
+}
+window.addEventListener("load", callbackFunc);
+window.addEventListener("resize", callbackFunc);
 </script>
 
 </body>
